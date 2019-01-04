@@ -1,0 +1,163 @@
+body {
+	font-family:"Trebuchet MS", "Myriad Pro", Arial, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+	background-color: #FFFFFF;
+}
+
+th {
+	font-weight: bold;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #000000;
+	background-image: url(images/tengah.png);
+	padding: 5px;
+	border: 1px solid #666666;
+}
+.tr1{
+	font-weight: bold;
+	text-align: center;
+	background-color: Gainsboro;
+	padding: 5px;
+	border: 1px solid #666666;
+}
+a:link , a:visited {
+	font-family:  Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	border: 0 none;
+	color: #000099;
+	font-weight: normal;
+	font-style: normal;
+	line-height: normal;
+	text-decoration: none;
+
+}
+a:hover {
+	color: #FF9900;
+	text-decoration: none;
+	border: 0px none;
+}
+
+.tbl-odd	{	background-color: #BBBBBB;	}
+.tbl-even	{	background-color: #FFFFFF;	}
+
+/* TOOLTIPS CSS */
+#dhtmltooltip{
+position: absolute;
+width: 150px;
+border: 2px solid black;
+padding: 2px;
+background-color: lightyellow;
+visibility: hidden;
+z-index: 100;
+/*Remove below line to remove shadow. Below line should always appear last within this CSS*/
+filter: progid:DXImageTransform.Microsoft.Shadow(color=gray,direction=135);
+}
+/* TOOLTIPS CSS */
+
+#footer {
+		text-align: center;
+		width:100%;
+		height:100px;
+		bottom:0px;
+		left:0;
+		background:#e0852a;
+		color:#fff;
+		text-shadow:1px 1px 1px #000;
+
+}
+.floatright
+{	position:fixed;
+	_position:absolute;
+	top:25px;
+	right:0px;
+	clip:inherit;
+	z-index:+1000;
+}
+
+
+h1	{	font-size:40px;	}
+h2	{	font-size:20px;
+		color:#aaa;	}
+h2 span	{	color:#ffa800;	}
+
+h3 {	font-size:45px;	}
+h3 span	{	color:#ed2124;	}
+
+h100	{	font-size:14x;	}
+h100 span	{	color:#ed2124;	}
+
+/* RIBBON */
+.wrapper {
+	padding: 0px;
+	width: 130px;
+	height: 25px;
+	background: white;
+	border-radius: 3px;
+/*	-webkit-box-shadow: 0px 0px 1px rgba(0,0,0,0.3);
+	-moz-box-shadow:    0px 0px 1px rgba(0,0,0,0.3);
+	box-shadow:         0px 0px 1px rgba(0,0,0,0.3);	*/
+	position: relative;
+}
+
+.ribbon-wrapper-green {
+	width: 70px;
+	height: 30px;
+	overflow: hidden;
+	position: absolute;
+	top: -1px;
+	right: -1px;
+}
+
+.ribbon-green {
+	font: bold 7px Sans-Serif;
+	color: #333;
+	text-align: center;
+	text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+	-webkit-transform: rotate(45deg);
+	-moz-transform:    rotate(45deg);
+	-ms-transform:     rotate(45deg);
+	-o-transform:      rotate(45deg);
+	position: relative;
+	padding: 0px 5px;
+	left: -1px;
+	top: 4px;
+	width: 115px;
+	background-color: orange;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(orange), to(orange));
+	background-image: -webkit-linear-gradient(top, orange, orange);
+	background-image:    -moz-linear-gradient(top, orange, orange);
+	background-image:     -ms-linear-gradient(top, orange, orange);
+	background-image:      -o-linear-gradient(top, orange, orange);
+	color: RED;
+	-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+	-moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+	box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+
+.ribbon-green:before, .ribbon-green:after {
+	content: "";
+	border-top:   1px solid #6e8900;
+	border-left:  1px solid transparent;
+	border-right: 1px solid transparent;
+	position:absolute;
+	bottom: -1px;
+}
+
+.ribbon-green:before {
+	left: 10px;
+}
+.ribbon-green:after {
+	right: 0;
+}
+/* RIBBON */
+
+.title2{
+	font: 180px;
+	color: #0000FF;
+	padding: 10px 0px 10px 10px;
+	text-shadow: 1px 1px 1px #949494;
+	background: #d9d9d9;
+}

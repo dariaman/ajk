@@ -1,0 +1,56 @@
+
+td.btCell {
+	background-color	: #FFFFFF;
+	vertical-align		: top;
+}
+
+th.btHead {
+	background-color	: #e5e5e5;
+	vertical-align		: top;
+}
+
+.deprecated {
+    font-family			: Verdana,Arial,Helvetica,sans-serif;
+	border				: 1px solid #FF9090;
+	background-color	: #F0F0F0;
+	margin-left			: 10px;
+	margin-right		: 10px;
+	margin-top			: 10px;
+	margin-bottom		: 10px;
+	padding				: 3px;
+}
+
+.property {
+	color				: #000090;
+}
+
+.method {
+	color				: #009000;
+}
+/*
+.event {
+	color				: #900000;
+}
+*/
+span.version {
+	font-size			: 8pt;
+}
+
+div.hideableItem {
+	padding-left		: 20px;
+}
+
+div.separator {
+	border-top			: 1px dotted #555555; 
+	width				: 100%;
+	text-align			: right;
+	padding-top			: 3px;
+	margin-top			: 3px;
+}
+
+pre.code {
+	background-color	: #F9F9F9;
+	border				: 1px dotted #E0E0E0;
+	padding				: 2px;
+}
+
