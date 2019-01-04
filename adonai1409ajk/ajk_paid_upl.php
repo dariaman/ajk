@@ -38,22 +38,23 @@ echo '<table class="table table-condensed table-striped table-bordered table-hov
 
 		$temp_data="";
 		for ($i = 2; $i <= $hasildata; $i++) {
-			// $temp_data = $temp_data . "('".$data->val($i, 2);."','".$data->val($i, 3);."','".$data->val($i, 4);."')";
+			$temp_data = $temp_data . "('".$data->val($i, 2)."','".$data->val($i, 3)."','".$data->val($i, 4)."')";
 
-			echo var_dump($temp_data);
-			die();
-
-			$cekIDPeserta = mysql_fetch_array($database->doQuery('
-					CREATE TEMPORARY TABLE IF NOT EXISTS temp(
-						idpeserta VARCHAR(50),
-						tgl_bayar VARCHAR(20),
-						amount VARCHAR(50)
-					);
-
-					INSERT INTO temp VALUES $temp_data;
-
-				'));
+			
 		}
+		echo var_dump($temp_data);
+		die();
+
+		$cekIDPeserta = mysql_fetch_array($database->doQuery('
+			CREATE TEMPORARY TABLE IF NOT EXISTS temp(
+				idpeserta VARCHAR(50),
+				tgl_bayar VARCHAR(20),
+				amount VARCHAR(50)
+			);
+
+			INSERT INTO temp VALUES $temp_data;
+
+		'));
 
 
 		for ($i = 2; $i <= $hasildata; $i++) {
