@@ -31,15 +31,17 @@ echo '<table class="table table-condensed table-striped table-bordered table-hov
 			<th width="3%">MPP</th>
 			<th width="4%">Rate Asuransi</th>
 			<th width="8%">Premi Asuransi</th>
-			<th width="10%">Tgl Bayar</th>
-			<th width="8%">Nilai Bayar</th>
+			<th width="10%">Tgl Bayar Sistem</th>
+			<th width="8%">Nilai Bayar Sistem</th>
+			<th width="10%">Tgl Bayar (File)</th>
+			<th width="8%">Nilai Bayar (File)</th>
 			<th width="10%">Status</th>
 		</tr></thead><tbody>';
 
 		for ($i = 0; $i <= $hasildata-2; $i++) 
 		{
 $cekIDPeserta = mysql_fetch_array($database->doQuery('SELECT fp.`id_peserta`,fpl.`nmproduk`,fp.`nama`,fp.`tgl_lahir`,fp.`usia`,fp.`kredit_jumlah`,fp.`kredit_tenor`,
-fp.`mppbln`,fp.`rateasuransi`,fp.`premi`,fas.`b_tgl_bayar`,fas.`b_nilai_bayar`
+fp.`mppbln`,fp.`rateasuransi`,fp.`premi`,IFNULL(fas.`b_tgl_bayar`,\'-\') as b_tgl_bayar,IFNULL(fas.`b_nilai_bayar`,0) as b_nilai_bayar
 FROM `fu_ajk_peserta` fp 
 LEFT JOIN `fu_ajk_polis` fpl ON fpl.`id`=fp.`id_polis`
 LEFT JOIN `fu_ajk_peserta_as` fas ON fas.`id_peserta`=fp.`id_peserta`
@@ -77,9 +79,9 @@ if ($cekIDPeserta["b_tgl_bayar"]==$data->val($i+2, 3) &&
 	$cekIDPeserta["b_nilai_bayar"]==$data->val($i+2, 4)) {
 	$status = '<font color=red><b>Paid</b></font>';
 	$is_error="true";
-}else if(date_create($cekIDPeserta["b_tgl_bayar"])>=date_create($data->val($i+2, 3))){
-	$status = '<font color=red><b>Paid</b></font>';
-	$is_error="true";
+// }else if(date_create($cekIDPeserta["b_tgl_bayar"])>=date_create($data->val($i+2, 3))){
+// 	$status = '<font color=red><b>Paid</b></font>';
+// 	$is_error="true";
 }else { $status = 'Unpaid' ;}
 
 if (($i % 2) == 1) $objlass = 'tbl-odd';	else $objlass = 'tbl-even';
@@ -95,6 +97,9 @@ echo '<tr onmouseover="this.className=\'tbl-over\'" onmouseout="this.className=\
 	<td align="right">'.$cekIDPeserta["mppbln"].'</td>
 	<td align="right">'.$cekIDPeserta["rateasuransi"].'</td>
 	<td align="right">'.$cekIDPeserta["premi"].'</td>
+	<td align="right">'.$cekIDPeserta["b_tgl_bayar"].'</td>
+	<td align="right">'.$cekIDPeserta["b_nilai_bayar"].'</td>
+
 	<td align="center">'.$data->val($i+2, 3).$errortgl.'</td>
 	<td align="right">'.$data->val($i+2, 4).$errornilai.'</td>
 	<td align="center">'.$status.'</td>
@@ -140,7 +145,7 @@ for ($i=2; $i<=$hasildata; $i++){
 		');
 }
 echo '<center><div class="alert alert-success"><strong>Upload data pembayaran telah selesai diupdate.</strong>.</div></center>
-	  <meta http-equiv="refresh" content="2; url=ajk_paid_upl.php?r=peserta">';
+	  <meta http-equiv="refresh" content="2; url=ajk_paid_upl.php?r=paidupload">';
 	;
 	break;
 
