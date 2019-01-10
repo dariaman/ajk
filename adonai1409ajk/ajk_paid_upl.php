@@ -87,21 +87,21 @@ if ($cekIDPeserta["b_tgl_bayar"]==$data->val($i+2, 3) &&
 if (($i % 2) == 1) $objlass = 'tbl-odd';	else $objlass = 'tbl-even';
 echo '<tr onmouseover="this.className=\'tbl-over\'" onmouseout="this.className=\'' . $objlass . '\'" class="' . $objlass . '">
 	<td align="center">'.($i+1).'</td>
-	<td align="center">'.$cekIDPeserta["id_peserta"].$error.'</td>
+	<td align="center">'.substr('0000000000'.$data->val($i+2, 2),-10).$error.'</td>
 	<td align="center">'.$cekIDPeserta["nmproduk"].'</td>
 	<td align="Left">'.$cekIDPeserta["nama"].'</td>
 	<td align="center">'.$cekIDPeserta["tgl_lahir"].'</td>
 	<td align="right">'.$cekIDPeserta["usia"].'</td>
-	<td align="right">'.$cekIDPeserta["kredit_jumlah"].'</td>
+	<td align="right">'.duit($cekIDPeserta["kredit_jumlah"]).'</td>
 	<td align="right">'.$cekIDPeserta["kredit_tenor"].'</td>
 	<td align="right">'.$cekIDPeserta["mppbln"].'</td>
 	<td align="right">'.$cekIDPeserta["rateasuransi"].'</td>
-	<td align="right">'.$cekIDPeserta["premi"].'</td>
+	<td align="right">'.duit($cekIDPeserta["premi"]).'</td>
 	<td align="right">'.$cekIDPeserta["b_tgl_bayar"].'</td>
-	<td align="right">'.$cekIDPeserta["b_nilai_bayar"].'</td>
+	<td align="right">'.duit($cekIDPeserta["b_nilai_bayar"]).'</td>
 
 	<td align="center">'.$data->val($i+2, 3).$errortgl.'</td>
-	<td align="right">'.$data->val($i+2, 4).$errornilai.'</td>
+	<td align="right">'.duit($data->val($i+2, 4)).$errornilai.'</td>
 	<td align="center">'.$status.'</td>
 	</tr>';
 }
@@ -166,26 +166,6 @@ echo '<tr><td width="20%">File Pembayaran (.xls)<font color="red">*</font></td><
 	</table>';
 		;
 		break;
-case "paidupload_as1":
-	include_once ("../includes/functions.php");
-			echo '<table border="0" cellpadding="5" cellspacing="0" width="100%">
-			  <tr><th align="left">Modul Upload Data Pembayaran dari</th><th align="left" width="1%"><a href="ajk_claim.php"><img src="image/Backward-64.png" width="20"></a></th></tr>
-			  </table>';
-					echo '<table border="0" width="100%" cellpadding="3" cellspacing="1" style="border: solid 1px #DEDEDE" enctype="multipart/form-data">
-			<form method="post" action="" enctype="multipart/form-data">
-
-				<!--
-				<tr><td width="10%">Nama Perusahaan</td>
-						<td><select size="1" name="metCompany">
-							<option value="">--Pilih Lembaga--</option>-->
-							';
-
-							echo '<tr><td width="10%">File Pembayaran</td><td><input name="filepembayaran" type="file" accept="application/vnd.ms-excel"></td></tr>
-					<tr><td><input type="hidden" name="r" value="viewPaid_as" class="button"><input type="submit" name="button" value="Upload Pembayaran" class="button"></td><td><a href="temp_upload.xls">Contoh File Upload</a></tr>
-					</form>
-					</table>';
-			;
-			break;
 	default:
 		;
 } // switch
